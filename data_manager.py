@@ -2,13 +2,13 @@ import requests
 from dotenv import load_dotenv
 import os
 load_dotenv()
-price_end_point = os.environ["price_ep"]
-users_end_point = os.environ["user_ep"]
+price_end_point = os.getenv("price_ep")
+users_end_point = os.getenv("user_ep")
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
         self.header={
-            "Authorization": f"Bearer {os.environ["TOKEN"]} "
+            "Authorization": f"Bearer {os.getenv("TOKEN")} "
         }
         self.price_response = requests.get(price_end_point, headers=self.header).json()
         self.city = self.get_city()

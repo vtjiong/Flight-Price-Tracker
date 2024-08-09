@@ -9,8 +9,8 @@ flight_url = "https://test.api.amadeus.com/v2/shopping/flight-offers"
 
 class FlightSearch:
     def __init__(self):
-        self.apikey = os.environ["AMADEUSKEY"]
-        self.apiSecret = os.environ["AMADEUSSECRET"]
+        self.apikey = os.getenv("AMADEUSKEY")
+        self.apiSecret = os.getenv("AMADEUSSECRET")
         self.token = f"Bearer {self.get_token()}"
         self.header = {
             'Authorization': self.token

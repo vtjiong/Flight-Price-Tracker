@@ -4,8 +4,8 @@ import os
 load_dotenv()
 class NotificationManager:
     def __init__(self):
-        self.email = os.environ["EMAIL"]
-        self.token = os.environ["EMAIL_TOKEN"]
+        self.email = os.getenv("EMAIL")
+        self.token = os.getenv("EMAIL_TOKEN")
 
     def send_email(self,to,stops,price,city, destination,departure_date,return_date):
         if stops==0:
